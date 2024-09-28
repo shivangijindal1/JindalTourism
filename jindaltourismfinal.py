@@ -392,6 +392,8 @@ title_label.pack(pady=10)
 about_us_button = tk.Button(root, text="About Us", command=lambda: show_about_us(), height=2, width=40, font=("Arial", 14, "bold"), bg="Pink")
 about_us_button.pack(pady=10)
 
+title_label = tk.Label(root, text="JindalTourism | All Rights Reserves", font=("Times New Roman", 15, "bold"), bg="#C3B1E1", fg="black")
+title_label.pack(pady=10)
 
 # Function to show About Us information
 def show_about_us():
