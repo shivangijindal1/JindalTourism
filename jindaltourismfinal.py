@@ -5,7 +5,7 @@ from tkinter import PhotoImage
 # Simple cart list to store tour items
 cart = []
 
-# Free and Paid tour dictionaries with prices for paid tours
+# Free and Paid tour dictionaries and transportation+insurance bookings with prices for paid tours
 free_tours = {
     "Dubare Elephant Camp Tour": "Experience the beauty of nature and interact with elephants in their natural habitat.The Dubare Camp, where elephants were trained for the famous Mysore Dasara, found a brand new calling. Today, it’s a place where hundreds of tourists get one-on-one with their biggest (quite literally) dream. The Dubare Elephant Camp is a chance to get to know these giant, enchanting creatures better. With a host of activities built around this, many a guest has left the camp with a sense of responsibility to do their bit towards protecting elephants. A trained naturalist takes our guests through the complexities of elephant history, ecology and biology.",
     "Abbey Falls Tour": "Also known as Abbi Falls, Abbey Falls, located near Madikeri, is a perfect place to visit in Coorg. It is also one of the most sought tourism place with our Coorg honeymoon packages The sight of water falling from a cliff with a height of 70 feet, surrounded by lush greenery is indeed a sight that will behold everyone’s attention. The waterfall is a combination of many streams that come together and fall into a pool of water that flows and merge into River Kaveri. The scenic grandeur of Abbey Falls increases by many folds in monsoon. During Monsoon, the stream of water becomes thicker with louder roar. Adding to it is the richer greenery around, which does create sight of a lifetime.Visit the stunning Abbey Falls and enjoy a picturesque view of the surrounding hills.",
@@ -20,7 +20,6 @@ paid_tours = {
     "Raja's Seat Garden Tour": ("About 1 km west of the Madikeri bus stand is Raja’s Seat. Popular lore claims that Kodava kings their consorts spent their evenings in the fine park here. It is easy to see why: dramatic views of an orange sun dipping behind the mountains can mesmerize both royals and commoners. This point overlooks green mountains and valleys, beribboned with the distant silver of roads and rivers. \n\n Entry: Rs1500. ", 1500)
 }
 
-# New Transportation options dictionary
 book_trans = {
     "Flight Booking": ("At this moment, we provide the following flights all at a fixed rate of Rs 5000 \n \n 1. Delhi-Mangalore \n 2. Mumbai-Mangalore \n 3. Kolkata-Mangalore \n 4. Chennai-Mangalore \n \n Sorry about any inconveniences caused. We are working hard to bring nationwide connectivity.", 5000),
     "Train Booking": ("At this moment, we provide the following trains all at a fixed rate of Rs 4000 \n \n 1. Delhi-Mangalore \n 2. Mumbai-Mangalore \n 3. Kolkata-Mangalore \n 4. Chennai-Mangalore \n \n Sorry about any inconveniences caused. We are working hard to bring nationwide connectivity.", 4000),
@@ -43,7 +42,7 @@ def show_tour_info(tour_name, tour_info):
     tour_title_label.pack(pady=10)
 
     # Tour information label
-    tour_label = tk.Label(info_window, text=tour_info, wraplength=350, bg="#C3B1E1", font=("Arial", 12, "bold"))
+    tour_label = tk.Label(info_window, text=tour_info, wraplength=550, bg="#C3B1E1", font=("Arial", 12, "bold"))
     tour_label.pack(pady=20)
 
     # Button to add to cart
@@ -55,6 +54,7 @@ def show_tour_info(tour_name, tour_info):
     close_button.pack(pady=10)
     close_button.place(x=1000, y=550)
 
+    #view cart button
     view_cart_button = tk.Button(info_window, text="View Cart", command=show_cart, height=2, width=20, font=("Arial", 14, "bold"), bg="#FFD700")
     view_cart_button.pack(pady=5)
     view_cart_button.place(x=20,y=550)
@@ -79,7 +79,8 @@ def show_cart():
         cart_label.pack(pady=10)
         cart_label = tk.Label(cart_window, text=f"Items in your cart:\n \n {cart_items}", bg="#C3B1E1", font=("Arial", 14, "bold"))
         cart_label.pack(pady=20)
-        
+      
+        #checkout button 
         checkout_button = tk.Button(cart_window, text="Checkout", command=show_checkout, height=2, width=20, font=("Arial", 14, "bold"), bg="#FFD700")
         checkout_button.pack(pady=10)
 
@@ -87,10 +88,12 @@ def show_cart():
         empty_cart_label = tk.Label(cart_window, text="Your cart is empty!", bg="#C3B1E1", font=("Arial", 14, "bold"))
         empty_cart_label.pack(pady=20)
 
+    #close button
     close_button = tk.Button(cart_window, text="Close", command=cart_window.destroy, height=2, width=20, font=("Arial", 14, "bold"), bg="#FFD700")
     close_button.pack(pady=10)
     close_button.place(x=20,y=550)
 
+    #back button
     back_button = tk.Button(cart_window, text="Back to Home", command=cart_window.destroy, height=2, width=20, font=("Arial", 14, "bold"), bg="pink")
     back_button.pack(pady=10)
     back_button.place(x=1000,y=550)
@@ -168,7 +171,7 @@ def show_confirmation_page(booking_details, donation, total_amount):
         thank_you_message = "Thank you!\n"
 
     details_label = tk.Label(confirmation_window, text=f"{thank_you_message}Details of your booking:\n{booking_details}\nTotal Amount: Rs {total_amount} + {donation_amount}", 
-                              wraplength=350, bg="#C3B1E1", font=("Arial", 14, "bold"))
+                              wraplength=550, bg="#C3B1E1", font=("Arial", 14, "bold"))
     details_label.pack(pady=20)
 
     pay_button = tk.Button(confirmation_window, text="Pay Now", command=lambda: confirm_payment(total_amount, donation_amount), height=2, width=20, font=("Arial", 14, "bold"), bg="#FFD700")
@@ -227,7 +230,7 @@ def show_trans_info(trans_name):
     trans_title_label.pack(pady=10)
 
     # Transportation information label
-    trans_label = tk.Label(trans_window, text=trans_info, wraplength=350, bg="#C3B1E1", font=("Arial", 12, "bold"))
+    trans_label = tk.Label(trans_window, text=trans_info, wraplength=550, bg="#C3B1E1", font=("Arial", 12, "bold"))
     trans_label.pack(pady=20)
     
     # Add to cart button
