@@ -14,10 +14,6 @@
 - On the home page, you can navigate through various options to book transportation, explore free and paid tours, view your cart, and learn more about Jindal Tourism.
 - Each section allows you to browse and select tours or travel options, add items to your cart, and proceed to checkout.
 
-## Contribution
-
-Contributions to improve or expand the features of the application are welcome. Feel free to fork the repository, make changes, and submit a pull request.
-
 ## License
 
 This project is licensed under the MIT License.
